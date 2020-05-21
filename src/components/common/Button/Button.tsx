@@ -1,5 +1,5 @@
 import React from 'react';
-// import './Button.scss';
+import { ButtonProps } from '../../../types/common';
 
 export const Button = ({ text, onClick }: ButtonProps) => {
     return (
@@ -8,8 +8,3 @@ export const Button = ({ text, onClick }: ButtonProps) => {
         </button>
     );
 };
-
-interface ButtonProps {
-    text: string;
-    onClick: () => void;
-}
