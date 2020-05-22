@@ -1,12 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavStyle } from './NavStyle';
+import { NavLinkStyle } from './NavLinkStyle';
+import { SWLogo } from './SWLogo';
+import { ROUTES } from '../../constants/routes';
 
 export const Navigation = () => {
     return (
-        <div>
-            <NavLink to="/people">People</NavLink>
-            <NavLink to="/planets">Planets</NavLink>
-            <NavLink to="/communication">Communication</NavLink>
-        </div>
+        <NavStyle>
+            <SWLogo />
+            {ROUTES.map((r) => (
+                <NavLinkStyle key={r.label} to={r.path}>
+                    {r.label}
+                </NavLinkStyle>
+            ))}
+        </NavStyle>
     );
 };
