@@ -12,7 +12,7 @@ export const PersonListComponent = (props: any) => {
 
     React.useEffect(() => {
         props.getPersonList();
-    });
+    }, []);
 
     return (
         <>
