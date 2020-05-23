@@ -2,7 +2,6 @@ import { Action } from '../../types/common';
 
 const initState = {
     personList: [{ name: 'Luke' }, { name: 'Obi wan' }],
-    activePerson: '',
 };
 
 const personReducer = (state = initState, action: Action) => {

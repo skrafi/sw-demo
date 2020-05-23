@@ -3,28 +3,36 @@ import { connect } from 'react-redux';
 
 import { fetchPersonList } from '../../store/person/requests';
 import { Person } from '../../types/person';
+import { PersonCard } from '../common/PersonCard/PersonCard';
+import { PersonListStyle } from './PersonListStyle';
+import { GlobalState } from '../../types/globalState';
 
-export const PersonListComponent = (props: any) => {
-    const [personList, setPersonList] = React.useState(props.personList);
+interface Props {
+    personList: Person[];
+    getPersonList: () => void;
+}
+
+export const PersonListComponent = ({ personList: personListProps, getPersonList }: Props) => {
+    const [personList, setPersonList] = React.useState(personListProps);
 
     React.useEffect(() => {
-        setPersonList(props.personList);
-    }, [props.personList]);
+        setPersonList(personListProps);
+    }, [personListProps]);
 
     React.useEffect(() => {
-        props.getPersonList();
-    }, []);
+        getPersonList();
+    }, [getPersonList]);
 
     return (
-        <>
+        <PersonListStyle>
             {personList.map((person: Person) => (
-                <div key={person.name}>{person.name}</div>
+                <PersonCard key={person.name} person={person} />
             ))}
-        </>
+        </PersonListStyle>
     );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: GlobalState) => ({
     personList: state.person.personList,
 });
 

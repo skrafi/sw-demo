@@ -9,7 +9,6 @@ export const fetchPersonList = () => {
             .get(`${API_URL}people`)
             .then((res: Response) => res.data.results)
             .then((data) => {
-                console.log(data);
                 dispatch({
                     type: 'UPDATE_PERSON_LIST',
                     payload: data,
