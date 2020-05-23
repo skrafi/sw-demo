@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { Content } from '../common/Content/Content';
 
-export const PersonListStyle = styled(Content)`
+export const PersonListStyle = styled.div`
     display: flex;
     flex-wrap: wrap;
 `;

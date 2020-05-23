@@ -1,10 +1,11 @@
 import React from 'react';
 import { ButtonProps } from '../../../types/common';
+import { ButtonStyle } from './ButtonStyle';
 
-export const Button = ({ text, onClick }: ButtonProps) => {
+export const Button = ({ text, onClick, backBtn }: ButtonProps) => {
     return (
-        <button className="btn" onClick={onClick}>
+        <ButtonStyle backBtn={backBtn} className="btn" onClick={onClick}>
             {text}
-        </button>
+        </ButtonStyle>
     );
 };

@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import avatar from '../../../assets/images/stortrooper.jpg';
 
 export const PersonCardAvatar = styled.div`
-    width: 70px;
-    height: 70px;
+    width: 10em;
+    height: 8em;
 
     align-self: center;
     background-image: url(${() => avatar});

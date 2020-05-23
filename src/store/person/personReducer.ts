@@ -2,6 +2,7 @@ import { Action } from '../../types/common';
 
 const initState = {
     personList: [{ name: 'Luke' }, { name: 'Obi wan' }],
+    personDetails: null,
 };
 
 const personReducer = (state = initState, action: Action) => {
@@ -10,6 +11,11 @@ const personReducer = (state = initState, action: Action) => {
             return {
                 ...state,
                 personList: action.payload,
+            };
+        case 'UPDATE_PERSON_DETAILS':
+            return {
+                ...state,
+                personDetails: action.payload,
             };
         default:
             return state;

@@ -6,6 +6,8 @@ import { Person } from '../../types/person';
 import { PersonCard } from '../common/PersonCard/PersonCard';
 import { PersonListStyle } from './PersonListStyle';
 import { GlobalState } from '../../types/globalState';
+import { Header } from '../common/Header/Header';
+import { Content } from '../common/Content/Content';
 
 interface Props {
     personList: Person[];
@@ -24,11 +26,14 @@ export const PersonListComponent = ({ personList: personListProps, getPersonList
     }, [getPersonList]);
 
     return (
-        <PersonListStyle>
-            {personList.map((person: Person) => (
-                <PersonCard key={person.name} person={person} />
-            ))}
-        </PersonListStyle>
+        <Content>
+            <Header>People</Header>
+            <PersonListStyle>
+                {personList.map((person: Person) => (
+                    <PersonCard key={person.name} person={person} />
+                ))}
+            </PersonListStyle>
+        </Content>
     );
 };
 

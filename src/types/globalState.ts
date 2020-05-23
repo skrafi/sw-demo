@@ -1,4 +1,4 @@
-import { Person } from './person';
+import { Person, PersonDetailsProps } from './person';
 
 export interface GlobalState {
     person: PersonState;
@@ -6,4 +6,5 @@ export interface GlobalState {
 
 export interface PersonState {
     personList: Person[];
+    personDetails: PersonDetailsProps;
 }

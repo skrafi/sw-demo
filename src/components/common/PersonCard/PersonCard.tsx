@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PersonCardAvatar } from './PersonCardAvatar';
-import { PersonCardStyle } from './PersonCardStyle';
+import { PersonCardWrapper, PersonCardStyle } from './PersonCardStyle';
 import { useHistory } from 'react-router-dom';
 import { Person } from '../../../types/person';
 
@@ -13,10 +13,12 @@ export const PersonCard = (props: Props) => {
         history.push(`/people/${id}`);
     };
     return (
-        <PersonCardStyle onClick={() => goToDetails()}>
-            <PersonCardAvatar />
-            <span>{person.name}</span>
-        </PersonCardStyle>
+        <PersonCardWrapper>
+            <PersonCardStyle onClick={() => goToDetails()}>
+                <PersonCardAvatar />
+                <span>{person.name}</span>
+            </PersonCardStyle>
+        </PersonCardWrapper>
     );
 };
 

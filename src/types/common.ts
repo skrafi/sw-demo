@@ -1,5 +1,6 @@
 export interface ButtonProps {
     text: string;
+    backBtn?: boolean;
     onClick: () => void;
 }
 

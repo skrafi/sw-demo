@@ -11,3 +11,7 @@ interface ResponseData {
 export interface Response {
     data: ResponseData;
 }
+
+export interface PersonResponse {
+    data: Person;
+}

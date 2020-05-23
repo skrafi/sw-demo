@@ -10,7 +10,7 @@ export const NavLinkStyle = styled(NavLink)`
     color: ${THEME.color.primaryGold};
 
     text-align: left;
-    font-family: Vollkorn, serif;
+    font-family: ${THEME.font.familiy.secondary}
     font-size: 22px;
     line-height: 24px;
     font-weight: 600;
