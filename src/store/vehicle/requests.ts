@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { API_URL } from '../../constants/endpoints';
-import { Response, PersonResponse } from '../../types/response';
+import { Response, VehicleResponse } from '../../types/response';
 import { Dispatch } from 'redux';
-// import { fetchList } from '../../helpers/fetchList';
+import { camelCaseKeys } from '../../helpers/camelCaseKeys';
+import { fetchList } from '../../helpers/fetchList';
 
 export const fetchVehicleList = () => {
     return (dispatch: Dispatch) => {
@@ -31,18 +32,15 @@ export const fetchVehicleDetails = (personId: number) => {
         });
         return axios
             .get(`${API_URL}vehicles/${personId}`)
-            .then(async (res: PersonResponse) => {
-                // const species = (await fetchList(res.data.species)) || [];
-                // const vehicle = (await fetchList([res.data.homeworld])) || [];
-                // const vehicles = (await fetchList(res.data.vehicles)) || [];
-                // return Promise.all([species, vehicle, vehicles]).then(() => {
-                return {
-                    ...res.data,
-                    // homeworld: vehicle[0],
-                    // species,
-                    // vehicles,
-                };
-                // });
+            .then(async (res: VehicleResponse) => {
+                const formattedData = camelCaseKeys(res.data);
+                const pilots = (await fetchList(res.data.pilots)) || [];
+                return Promise.all([pilots]).then(() => {
+                    return {
+                        ...formattedData,
+                        pilots,
+                    };
+                });
             })
             .then((data) => {
                 dispatch({

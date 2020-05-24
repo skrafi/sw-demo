@@ -1,5 +1,6 @@
 import { Person } from './person';
 import { Planet } from './planet';
+import { Vehicle } from './vehicle';
 
 interface ResponseData {
     count: number;
@@ -18,4 +19,8 @@ export interface PersonResponse {
 
 export interface PlanetResponse {
     data: Planet;
+}
+
+export interface VehicleResponse {
+    data: Vehicle;
 }

@@ -5,8 +5,8 @@ import { Content } from '../common/Content/Content';
 import { VehicleDetailsProps } from '../../types/vehicle';
 import { VehicleDetailsStyle } from './VehicleDetailsStyle';
 import { LoaderView } from '../common/Loader/LoaderView';
-// import { RowSingleValue } from '../common/RowSingleValue/RowSinglValue';
-// import { RowMultipleValue } from '../common/RowMultipleValue/RowMultipleValue';
+import { RowSingleValue } from '../common/RowSingleValue/RowSinglValue';
+import { RowMultipleValue } from '../common/RowMultipleValue/RowMultipleValue';
 import { Details, DetailsCardStyle, DetsailsCardInner } from '../common/Details/Details';
 import { BigPhoto } from '../common/BigPhoto/BigPhoto';
 
@@ -47,7 +47,12 @@ export const VehicleDetailsComponent = ({
                                 <BigPhoto type="vehicle" reverse />
                                 <DetailsCardStyle>
                                     <DetsailsCardInner>
-                                        <div>Vehicle Details</div>
+                                        <RowSingleValue value={vehicleDetails.vehicleClass} title="Type" />
+                                        <RowMultipleValue
+                                            listValue={vehicleDetails.pilots}
+                                            title="Pilots"
+                                            urlType={'people'}
+                                        />
                                     </DetsailsCardInner>
                                 </DetailsCardStyle>
                             </Details>

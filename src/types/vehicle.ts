@@ -4,16 +4,14 @@ export interface Vehicle {
     id: number;
     name: string;
     url: string;
-    species: string[];
-    homeworld: string;
-    vehicles: string[];
+    vehicleClass: string;
+    pilots: string[];
 }
 
 export interface VehicleDetailsProps {
     id: number;
     name: string;
     url: string;
-    species: Reference[];
-    homeworld: Reference;
-    vehicles: Reference[];
+    vehicleClass: string;
+    pilots: Reference[];
 }
