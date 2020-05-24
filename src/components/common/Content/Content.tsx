@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 import { THEME } from '../../../constants/theme';
 
 export const Content = styled.div`
-    width: 80%;
-    margin-left: 20%;
+    @media (min-width: 1024px) {
+        margin-left: 300px;
+        width: calc(100% - 300px);
+    }
     padding: 30px;
     background: rgb(2, 0, 36);
     background: ${THEME.color.background};

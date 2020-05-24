@@ -6,7 +6,7 @@ export const ItemCardWrapper = styled.div`
     @media (min-width: 460px) {
         width: 50%;
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         width: 33%;
     }
     @media (min-width: 1300px) {
@@ -17,6 +17,7 @@ export const ItemCardWrapper = styled.div`
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 `;
 
 export const ItemCardStyle = styled.div`
@@ -24,12 +25,7 @@ export const ItemCardStyle = styled.div`
     max-width: 420px;
     height: 16em;
     width: 100%;
-    @media (min-width: 460px) {
-        width: 50%;
-    }
-    @media (min-width: 1024px) {
-        width: 33%;
-    }
+    max-width: 16em;
     cursor: pointer;
     &:hover {
         & > div {
