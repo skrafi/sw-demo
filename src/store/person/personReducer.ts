@@ -2,6 +2,7 @@ import { Action } from '../../types/common';
 
 const initState = {
     personList: [],
+    personListCount: 0,
     listLoding: false,
     personDetails: null,
     personLoading: false,
@@ -17,7 +18,8 @@ const personReducer = (state = initState, action: Action) => {
         case 'UPDATE_PERSON_LIST':
             return {
                 ...state,
-                personList: action.payload,
+                personList: action.payload.results,
+                personListCount: action.payload.count,
                 listLoading: false,
             };
         case 'GET_PERSON_DETAILS':

@@ -10,6 +10,7 @@ export interface GlobalState {
 
 export interface PersonState {
     personList: Person[];
+    personListCount: number;
     listLoading: boolean;
     personDetails: PersonDetailsProps;
     personLoading: boolean;
@@ -17,6 +18,7 @@ export interface PersonState {
 
 export interface PlanetState {
     planetList: Planet[];
+    planetListCount: number;
     listLoading: boolean;
     planetDetails: PlanetDetailsProps;
     planetLoading: boolean;
@@ -24,6 +26,7 @@ export interface PlanetState {
 
 export interface VehicleState {
     vehicleList: Vehicle[];
+    vehicleListCount: number;
     listLoading: boolean;
     vehicleDetails: VehicleDetailsProps;
     vehicleLoading: boolean;

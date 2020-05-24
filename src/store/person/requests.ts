@@ -4,14 +4,14 @@ import { Response, PersonResponse } from '../../types/response';
 import { Dispatch } from 'redux';
 import { fetchList } from '../../helpers/fetchList';
 
-export const fetchPersonList = () => {
+export const fetchPersonList = (page = 1) => {
     return (dispatch: Dispatch) => {
         dispatch({
             type: 'GET_PERSON_LIST',
         });
         return axios
-            .get(`${API_URL}people`)
-            .then((res: Response) => res.data.results)
+            .get(`${API_URL}people?page=${page}`)
+            .then((res: Response) => res.data)
             .then((data) => {
                 dispatch({
                     type: 'UPDATE_PERSON_LIST',

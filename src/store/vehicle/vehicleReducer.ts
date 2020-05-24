@@ -2,6 +2,7 @@ import { Action } from '../../types/common';
 
 const initState = {
     vehicleList: [],
+    vehicleListCount: 0,
     listLoding: false,
     vehicleDetails: null,
     vehicleLoading: false,
@@ -17,7 +18,8 @@ const personReducer = (state = initState, action: Action) => {
         case 'UPDATE_VEHICLE_LIST':
             return {
                 ...state,
-                vehicleList: action.payload,
+                vehicleList: action.payload.results,
+                vehicleListCount: action.payload.count,
                 listLoading: false,
             };
         case 'GET_VEHICLE_DETAILS':

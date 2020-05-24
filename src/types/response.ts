@@ -6,7 +6,7 @@ interface ResponseData {
     count: number;
     next: string;
     previous: string;
-    results: Person[] | Planet[];
+    results: Person[] | Planet[] | Vehicle[];
 }
 
 export interface Response {

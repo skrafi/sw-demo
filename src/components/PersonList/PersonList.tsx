@@ -9,23 +9,35 @@ import { Header } from '../common/Header/Header';
 import { Content } from '../common/Content/Content';
 import { LoaderView } from '../common/Loader/LoaderView';
 import { ItemCard } from '../common/ItemCard/ItemCard';
+import { Pagination } from '../common/Pagination/Pagination';
 
 interface Props {
     personList: Person[];
     listLoading: boolean;
-    getPersonList: () => void;
+    personListCount: number;
+    getPersonList: (page: number) => void;
 }
 
-export const PersonListComponent = ({ personList: personListProps, getPersonList, listLoading }: Props) => {
+export const PersonListComponent = ({
+    personList: personListProps,
+    getPersonList,
+    listLoading,
+    personListCount,
+}: Props) => {
     const [personList, setPersonList] = React.useState(personListProps);
+    const [page, setPage] = React.useState(1);
 
     React.useEffect(() => {
         setPersonList(personListProps);
     }, [personListProps]);
 
     React.useEffect(() => {
-        getPersonList();
-    }, [getPersonList]);
+        getPersonList(page);
+    }, [getPersonList, page]);
+
+    const handleClick = (page: number) => {
+        setPage(page);
+    };
 
     return (
         <Content>
@@ -39,16 +51,18 @@ export const PersonListComponent = ({ personList: personListProps, getPersonList
                     ))}
                 </PersonListStyle>
             )}
+            <Pagination count={personListCount} handleClick={handleClick} currentPage={page} />
         </Content>
     );
 };
 
 const mapStateToProps = (state: GlobalState) => ({
     personList: state.person.personList,
+    personListCount: state.person.personListCount,
     listLoading: state.person.listLoading,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-    getPersonList: () => dispatch(fetchPersonList()),
+    getPersonList: (page: number) => dispatch(fetchPersonList(page)),
 });
 export const PersonList = connect(mapStateToProps, mapDispatchToProps)(PersonListComponent);

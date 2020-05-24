@@ -12,7 +12,7 @@ export const fetchVehicleList = () => {
         });
         return axios
             .get(`${API_URL}vehicles`)
-            .then((res: Response) => res.data.results)
+            .then((res: Response) => res.data)
             .then((data) => {
                 dispatch({
                     type: 'UPDATE_VEHICLE_LIST',
