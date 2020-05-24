@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import { fetchPersonList } from '../../store/person/requests';
 import { Person } from '../../types/person';
-import { PersonCard } from '../common/PersonCard/PersonCard';
 import { PersonListStyle } from './PersonListStyle';
 import { GlobalState } from '../../types/globalState';
 import { Header } from '../common/Header/Header';
 import { Content } from '../common/Content/Content';
 import { LoaderView } from '../common/Loader/LoaderView';
+import { ItemCard } from '../common/ItemCard/ItemCard';
 
 interface Props {
     personList: Person[];
@@ -35,7 +35,7 @@ export const PersonListComponent = ({ personList: personListProps, getPersonList
             ) : (
                 <PersonListStyle>
                     {personList.map((person: Person) => (
-                        <PersonCard type="person" key={person.name} item={person} />
+                        <ItemCard type="people" key={person.name} item={person} />
                     ))}
                 </PersonListStyle>
             )}

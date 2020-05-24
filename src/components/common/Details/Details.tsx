@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Details = styled.div`
+export const Details = styled.div<{ reverse?: boolean }>`
     display: flex;
+    flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
 `;
 
 export const DetailsCardStyle = styled.div`

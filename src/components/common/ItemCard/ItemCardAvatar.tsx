@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
-import person from '../../../assets/images/stortrooper.jpg';
+import person from '../../../assets/images/person.png';
 import vehicle from '../../../assets/images/vehicle.png';
 import planet from '../../../assets/images/planet.png';
 
 const getImage = (cardType: string) => {
     switch (cardType) {
-        case 'person':
+        case 'people':
             return person;
-        case 'planet':
+        case 'planets':
             return planet;
-        case 'vehicle':
+        case 'vehicles':
             return vehicle;
         default:
             return person;

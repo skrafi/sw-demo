@@ -3,7 +3,8 @@ import { ItemCardAvatar } from './ItemCardAvatar';
 import { useHistory } from 'react-router-dom';
 import { Person } from '../../../types/person';
 import { Planet } from '../../../types/planet';
-import { ItemCardWrapper, ItemCardStyle, CardInner, ItemName } from './asdasda';
+import { ItemCardWrapper, ItemCardStyle, CardInner, ItemName } from './ItemCardStyle';
+import { Vehicle } from '../../../types/vehicle';
 
 export const ItemCard = (props: Props) => {
     const [item] = React.useState(props.item);
@@ -11,7 +12,7 @@ export const ItemCard = (props: Props) => {
     const splittedUrl = props.item?.url?.split('/') || [];
     const id = splittedUrl[splittedUrl.length - 2];
     const goToDetails = () => {
-        history.push(`/people/${id}`);
+        history.push(`/${props.type}/${id}`);
     };
     return (
         <ItemCardWrapper>
@@ -26,6 +27,6 @@ export const ItemCard = (props: Props) => {
 };
 
 interface Props {
-    item: Person | Planet;
+    item: Person | Planet | Vehicle;
     type: string;
 }

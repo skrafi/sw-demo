@@ -1,37 +1,66 @@
 import * as React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Button } from '../common/Button/Button';
 import { Content } from '../common/Content/Content';
-import { connect } from 'react-redux';
-import { GlobalState } from '../../types/globalState';
-import { PersonDetailsProps } from '../../types/person';
-import { fetchPersonDetails } from '../../store/person/requests';
+import { PlanetDetailsProps } from '../../types/planet';
 import { PlanetDetailsStyle } from './PlanetDetailsStyle';
+import { LoaderView } from '../common/Loader/LoaderView';
+// import { RowSingleValue } from '../common/RowSingleValue/RowSinglValue';
+// import { RowMultipleValue } from '../common/RowMultipleValue/RowMultipleValue';
+import { Details, DetailsCardStyle, DetsailsCardInner } from '../common/Details/Details';
+import { BigPhoto } from '../common/BigPhoto/BigPhoto';
 
-export const PlanetDetailsComponent = () => {
+export const PlanetDetailsComponent = ({
+    planetDetails: planetDetailsProps,
+    getPlanetDetails,
+    planetLoading,
+}: Props) => {
     const history = useHistory();
-    // const { id } = useParams();
+    const { id } = useParams();
+    const [planetDetails, setPlanetDetails] = React.useState(planetDetailsProps);
     const handleBackClick = () => {
-        history.goBack();
+        history.push('/people');
     };
+
+    React.useEffect(() => {
+        setPlanetDetails(planetDetailsProps);
+    }, [planetDetailsProps]);
+
+    React.useEffect(() => {
+        getPlanetDetails(id);
+        return () => {
+            setPlanetDetails(null);
+        };
+    }, [getPlanetDetails, id]);
+
     return (
         <Content>
             <Button backBtn text="&larr; Back" onClick={handleBackClick} />
-            <PlanetDetailsStyle>Planet Details</PlanetDetailsStyle>
+            {planetLoading ? (
+                <LoaderView />
+            ) : (
+                <PlanetDetailsStyle>
+                    {planetDetails && (
+                        <>
+                            <h1>{planetDetails.name}</h1>
+                            <Details reverse>
+                                <BigPhoto type="planet" reverse />
+                                <DetailsCardStyle>
+                                    <DetsailsCardInner>
+                                        <div>Details</div>
+                                    </DetsailsCardInner>
+                                </DetailsCardStyle>
+                            </Details>
+                        </>
+                    )}
+                </PlanetDetailsStyle>
+            )}
         </Content>
     );
 };
 
 interface Props {
-    personDetails: PersonDetailsProps;
-    getPersonDetails: (itemId: number) => void;
+    planetDetails: PlanetDetailsProps | null;
+    planetLoading: boolean;
+    getPlanetDetails: (planetId: number) => void;
 }
-
-const mapStateToProps = (state: GlobalState) => ({
-    personDetails: state.person.personDetails,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-    getPersonDetails: (id: number) => dispatch(fetchPersonDetails(id)),
-});
-export const PlanetDetails = connect(mapStateToProps, mapDispatchToProps)(PlanetDetailsComponent);

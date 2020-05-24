@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
-import person from '../../../assets/images/stortrooper.jpg';
-import planet from '../../../assets/images/stortrooper.jpg';
-import vehicle from '../../../assets/images/stortrooper.jpg';
+import person from '../../../assets/images/person.png';
+import planet from '../../../assets/images/planet.png';
+import vehicle from '../../../assets/images/vehicle.png';
 
 interface Props {
-    type: any;
+    type: string;
+    reverse?: boolean;
 }
 
 const getType = (type: string) => {
@@ -31,5 +32,5 @@ export const BigPhoto = styled.div<Props>`
     background-repeat: no-repeat;
     background-position: left;
 
-    margin-right: 32px;
+    margin: ${({ reverse }) => (reverse ? '0 0 0 32px' : '0 32px 0 0')};
 `;

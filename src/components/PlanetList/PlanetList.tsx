@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { PersonCard } from '../common/PersonCard/PersonCard';
 import { GlobalState } from '../../types/globalState';
 import { Header } from '../common/Header/Header';
 import { Content } from '../common/Content/Content';
@@ -9,6 +8,7 @@ import { LoaderView } from '../common/Loader/LoaderView';
 import { PersonListStyle } from '../PersonList/PersonListStyle';
 import { fetchPlanetList } from '../../store/planet/requests';
 import { Planet } from '../../types/planet';
+import { ItemCard } from '../common/ItemCard/ItemCard';
 
 interface Props {
     planetList: Planet[];
@@ -35,7 +35,7 @@ export const PlanetListComponent = ({ planetList: planetListProps, getPlanetList
             ) : (
                 <PersonListStyle>
                     {planetList.map((planet: Planet) => (
-                        <PersonCard type="planet" key={planet.name} item={planet} />
+                        <ItemCard type="planets" key={planet.name} item={planet} />
                     ))}
                 </PersonListStyle>
             )}

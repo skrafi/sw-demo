@@ -2,7 +2,7 @@ import { PersonList } from '../components/PersonList/PersonList';
 import { PlanetList } from '../components/PlanetList/PlanetList';
 import { VehicleList } from '../components/VehicleList/VehicleList';
 import { PersonDetails } from '../components/PersonDetails/connect';
-import { PlanetDetails } from '../components/PlanetDetails/PlanetDetails';
+import { PlanetDetails } from '../components/PlanetDetails/connect';
 import { SpeciesDetails } from '../components/SpeciesDetails/SpeciesDetails';
 import { VehicleDetails } from '../components/VehicleDetails/VehicleDetails';
 
