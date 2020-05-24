@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Label, LabelWrapper } from '../Label/Label';
-import { Reference } from '../../../types/person';
 import { useHistory } from 'react-router-dom';
 import { getIdFromUrl } from '../../../helpers/getIdFromUrl';
 import { List, ReferenceStyleList } from './List';
+import { Reference } from '../../../types/common';
 
 export const RowMultipleValue = ({ title, listValue, urlType }: Props) => {
     const history = useHistory();

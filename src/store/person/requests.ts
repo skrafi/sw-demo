@@ -2,6 +2,7 @@ import axios from 'axios';
 import { API_URL } from '../../constants/endpoints';
 import { Response, PersonResponse } from '../../types/response';
 import { Dispatch } from 'redux';
+import { fetchList } from '../../helpers/fetchList';
 
 export const fetchPersonList = () => {
     return (dispatch: Dispatch) => {
@@ -22,27 +23,6 @@ export const fetchPersonList = () => {
             });
     };
 };
-
-interface ListProps {
-    name: string;
-    url: string;
-}
-
-function fetchList(listOfLinks: string[]) {
-    const result: ListProps[] = [];
-    const promises = [];
-    for (let i = 0; i < listOfLinks.length; i++) {
-        promises.push(
-            axios.get(listOfLinks[i]).then((response: PersonResponse) => {
-                result.push({ name: response.data.name, url: listOfLinks[i] });
-            }),
-        );
-    }
-
-    return Promise.all(promises).then(() => {
-        return result;
-    });
-}
 
 export const fetchPersonDetails = (personId: number) => {
     return (dispatch: Dispatch) => {

@@ -3,7 +3,7 @@ import { Label, LabelWrapper } from '../Label/Label';
 import { ReferenceStyle } from '../ReferenceStyle/ReferenceStyle';
 import { getIdFromUrl } from '../../../helpers/getIdFromUrl';
 import { useHistory } from 'react-router-dom';
-import { Reference } from '../../../types/person';
+import { Reference } from '../../../types/common';
 
 export const RowSingleValue = ({ title, value, urlType }: Props) => {
     const history = useHistory();

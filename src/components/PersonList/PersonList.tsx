@@ -35,7 +35,7 @@ export const PersonListComponent = ({ personList: personListProps, getPersonList
             ) : (
                 <PersonListStyle>
                     {personList.map((person: Person) => (
-                        <PersonCard key={person.name} person={person} />
+                        <PersonCard type="person" key={person.name} item={person} />
                     ))}
                 </PersonListStyle>
             )}

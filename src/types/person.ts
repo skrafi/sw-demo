@@ -1,3 +1,5 @@
+import { Reference } from './common';
+
 export interface Person {
     id: number;
     name: string;
@@ -5,11 +7,6 @@ export interface Person {
     species: string[];
     homeworld: string;
     vehicles: string[];
-}
-
-export interface Reference {
-    name: string;
-    url: string;
 }
 
 export interface PersonDetailsProps {

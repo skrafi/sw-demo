@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Content } from '../common/Content/Content';
 
-export const TransportList = () => {
+export const VehicleList = () => {
     return <Content>TransportList</Content>;
 };
