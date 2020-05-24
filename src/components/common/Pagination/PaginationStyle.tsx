@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 import { THEME } from '../../../constants/theme';
 
 export const Page = styled.span<{ active: boolean }>`
+    display: none;
+    @media (min-width: 460px) {
+        display: block;
+    }
     font-size: 20px;
     padding: 8px;
     margin: 0 8px;

@@ -2,8 +2,16 @@ import styled from '@emotion/styled';
 import { THEME } from '../../../constants/theme';
 
 export const ItemCardWrapper = styled.div`
-    width: 25%;
-
+    width: 100%;
+    @media (min-width: 460px) {
+        width: 50%;
+    }
+    @media (min-width: 1024px) {
+        width: 33%;
+    }
+    @media (min-width: 1300px) {
+        width: 25%;
+    }
     padding: 0 10px;
     margin-bottom: 32px;
 
@@ -12,8 +20,16 @@ export const ItemCardWrapper = styled.div`
 `;
 
 export const ItemCardStyle = styled.div`
-    width: 12em;
+    width: 100%;
+    max-width: 420px;
     height: 16em;
+    width: 100%;
+    @media (min-width: 460px) {
+        width: 50%;
+    }
+    @media (min-width: 1024px) {
+        width: 33%;
+    }
     cursor: pointer;
     &:hover {
         & > div {
