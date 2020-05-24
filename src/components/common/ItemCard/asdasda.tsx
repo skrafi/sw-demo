@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { THEME } from '../../../constants/theme';
 
-export const PersonCardWrapper = styled.div`
+export const ItemCardWrapper = styled.div`
     width: 25%;
 
     padding: 0 10px;
@@ -11,7 +11,7 @@ export const PersonCardWrapper = styled.div`
     flex-direction: column;
 `;
 
-export const PersonCardStyle = styled.div`
+export const ItemCardStyle = styled.div`
     width: 12em;
     height: 16em;
     cursor: pointer;
@@ -38,7 +38,7 @@ export const CardInner = styled.div`
     padding: 10px;
 `;
 
-export const PersonName = styled.div`
+export const ItemName = styled.div`
     width: 100%;
     text-align: center;
 `;

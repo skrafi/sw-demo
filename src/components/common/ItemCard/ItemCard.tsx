@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { PersonCardAvatar } from './PersonCardAvatar';
-import { PersonCardWrapper, PersonCardStyle, CardInner, PersonName } from './PersonCardStyle';
+import { ItemCardAvatar } from './ItemCardAvatar';
 import { useHistory } from 'react-router-dom';
 import { Person } from '../../../types/person';
 import { Planet } from '../../../types/planet';
+import { ItemCardWrapper, ItemCardStyle, CardInner, ItemName } from './asdasda';
 
-export const PersonCard = (props: Props) => {
+export const ItemCard = (props: Props) => {
     const [item] = React.useState(props.item);
     const history = useHistory();
     const splittedUrl = props.item?.url?.split('/') || [];
@@ -14,14 +14,14 @@ export const PersonCard = (props: Props) => {
         history.push(`/people/${id}`);
     };
     return (
-        <PersonCardWrapper>
-            <PersonCardStyle onClick={() => goToDetails()}>
+        <ItemCardWrapper>
+            <ItemCardStyle onClick={() => goToDetails()}>
                 <CardInner>
-                    <PersonCardAvatar cardType={props.type} />
-                    <PersonName>{item.name}</PersonName>
+                    <ItemCardAvatar cardType={props.type} />
+                    <ItemName>{item.name}</ItemName>
                 </CardInner>
-            </PersonCardStyle>
-        </PersonCardWrapper>
+            </ItemCardStyle>
+        </ItemCardWrapper>
     );
 };
 

@@ -16,7 +16,7 @@ const getImage = (cardType: string) => {
     }
 };
 
-export const PersonCardAvatar = styled.div<{ cardType: string }>`
+export const ItemCardAvatar = styled.div<{ cardType: string }>`
     width: 100%;
     height: 80%;
 
