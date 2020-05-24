@@ -3,8 +3,13 @@ import { THEME } from '../../../constants/theme';
 
 const backBtnStyles = `
   position: absolute;
-  left: 24px;
-  top:24px;
+  right: 24px;
+  left: -1;
+  top:32px;
+  @media(min-width:1024px){
+    left: 24px;
+    right: -1;
+  }
 `;
 
 interface BtnProps {

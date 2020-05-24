@@ -15,13 +15,6 @@ const slideOut = keyframes`
 export const NavStyle = styled.div<{ visible: boolean }>`
     position: fixed;
     z-index: 3;
-    left: ${({ visible }) => (visible ? '0' : '-400px')};
-    &.show {
-        animation: ${slideIn} 1s ease;
-    }
-    &.hide {
-        animation: ${slideOut} 1s ease;
-    }
 
     padding: 30px 0;
     width: 100%;
@@ -36,19 +29,26 @@ export const NavStyle = styled.div<{ visible: boolean }>`
     flex-direction: column;
     align-items: flex-start;
 
-    @media (min-width: 1920px) {
-        left: calc((100vw - 1920px) / 2);
+    @media (min-width: 768px) {
+        width: 300px;
     }
-
+    @media (max-width: 1024px) {
+        left: ${({ visible }) => (visible ? '0' : '-400px')};
+        &.show {
+            animation: ${slideIn} 1s ease;
+        }
+        &.hide {
+            animation: ${slideOut} 1s ease;
+        }
+    }
+    @media (min-width: 1024px) {
+        left: 0;
+    }
     @media (min-width: 1300px) {
         width: 20%;
     }
 
-    @media (min-width: 1024px) {
-        left: 0;
-    }
-
-    @media (min-width: 768px) {
-        width: 300px;
+    @media (min-width: 1920px) {
+        left: calc((100vw - 1920px) / 2);
     }
 `;

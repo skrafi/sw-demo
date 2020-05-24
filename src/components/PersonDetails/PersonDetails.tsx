@@ -1,14 +1,16 @@
 import * as React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+
+import { PersonDetailsProps } from '../../types/person';
 import { Button } from '../common/Button/Button';
 import { Content } from '../common/Content/Content';
-import { PersonDetailsProps } from '../../types/person';
-import { PersonDetailsStyle } from './PersonDetailsStyle';
 import { LoaderView } from '../common/Loader/LoaderView';
 import { RowSingleValue } from '../common/RowSingleValue/RowSinglValue';
 import { RowMultipleValue } from '../common/RowMultipleValue/RowMultipleValue';
 import { Details, DetailsCardStyle, DetsailsCardInner } from '../common/Details/Details';
 import { BigPhoto } from '../common/BigPhoto/BigPhoto';
+
+import { PersonDetailsStyle } from './PersonDetailsStyle';
 
 export const PersonDetailsComponent = ({
     personDetails: personDetailsProps,

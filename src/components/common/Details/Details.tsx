@@ -2,11 +2,20 @@ import styled from '@emotion/styled';
 
 export const Details = styled.div`
     display: flex;
+    flex-direction: column;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 `;
 
 export const DetailsCardStyle = styled.div`
     width: 100%;
-    min-height: 400px;
+    margin-bottom: 64px;
+    @media (min-width: 768px) {
+        min-height: 400px;
+        margin-bottom: 0;
+    }
+
     color: #e7e7e7;
     border-radius: 8px;
     background-color: #2e2e2e;

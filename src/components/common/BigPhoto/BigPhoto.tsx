@@ -22,15 +22,22 @@ const getType = (type: string) => {
 };
 
 export const BigPhoto = styled.div<Props>`
-    width: 400px;
-    height: 400px;
+    width: 270px;
+    height: 270px;
+    flex: 0 0 270px;
 
-    flex: 0 0 400px;
     align-self: center;
     background-image: url(${({ type }) => getType(type)});
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
 
-    margin-left: 32px;
+    @media (min-width: 1200px) {
+        width: 400px;
+        height: 400px;
+        flex: 0 0 400px;
+    }
+    @media (min-width: 768px) {
+        margin-left: 32px;
+    }
 `;
