@@ -1,38 +1,66 @@
 import * as React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Button } from '../common/Button/Button';
 import { Content } from '../common/Content/Content';
-import { connect } from 'react-redux';
-import { GlobalState } from '../../types/globalState';
-import { PersonDetailsProps } from '../../types/person';
-import { fetchPersonDetails } from '../../store/person/requests';
+import { VehicleDetailsProps } from '../../types/vehicle';
 import { VehicleDetailsStyle } from './VehicleDetailsStyle';
+import { LoaderView } from '../common/Loader/LoaderView';
+// import { RowSingleValue } from '../common/RowSingleValue/RowSinglValue';
+// import { RowMultipleValue } from '../common/RowMultipleValue/RowMultipleValue';
+import { Details, DetailsCardStyle, DetsailsCardInner } from '../common/Details/Details';
+import { BigPhoto } from '../common/BigPhoto/BigPhoto';
 
-export const VehicleDetailsComponent = () => {
+export const VehicleDetailsComponent = ({
+    vehicleDetails: vehicleDetailsProps,
+    getVehicleDetails,
+    vehicleLoading,
+}: Props) => {
     const history = useHistory();
-    // const { id } = useParams();
+    const { id } = useParams();
+    const [vehicleDetails, setVehicleDetails] = React.useState(vehicleDetailsProps);
     const handleBackClick = () => {
-        history.goBack();
+        history.push('/people');
     };
+
+    React.useEffect(() => {
+        setVehicleDetails(vehicleDetailsProps);
+    }, [vehicleDetailsProps]);
+
+    React.useEffect(() => {
+        getVehicleDetails(id);
+        return () => {
+            setVehicleDetails(null);
+        };
+    }, [getVehicleDetails, id]);
 
     return (
         <Content>
             <Button backBtn text="&larr; Back" onClick={handleBackClick} />
-            <VehicleDetailsStyle>Vehicle Details</VehicleDetailsStyle>
+            {vehicleLoading ? (
+                <LoaderView />
+            ) : (
+                <VehicleDetailsStyle>
+                    {vehicleDetails && (
+                        <>
+                            <h1>{vehicleDetails.name}</h1>
+                            <Details reverse>
+                                <BigPhoto type="vehicle" reverse />
+                                <DetailsCardStyle>
+                                    <DetsailsCardInner>
+                                        <div>Vehicle Details</div>
+                                    </DetsailsCardInner>
+                                </DetailsCardStyle>
+                            </Details>
+                        </>
+                    )}
+                </VehicleDetailsStyle>
+            )}
         </Content>
     );
 };
 
 interface Props {
-    personDetails: PersonDetailsProps;
-    getPersonDetails: (itemId: number) => void;
+    vehicleDetails: VehicleDetailsProps | null;
+    vehicleLoading: boolean;
+    getVehicleDetails: (vehicleId: number) => void;
 }
-
-const mapStateToProps = (state: GlobalState) => ({
-    personDetails: state.person.personDetails,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-    getPersonDetails: (id: number) => dispatch(fetchPersonDetails(id)),
-});
-export const VehicleDetails = connect(mapStateToProps, mapDispatchToProps)(VehicleDetailsComponent);

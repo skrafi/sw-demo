@@ -4,7 +4,7 @@ import { VehicleList } from '../components/VehicleList/VehicleList';
 import { PersonDetails } from '../components/PersonDetails/connect';
 import { PlanetDetails } from '../components/PlanetDetails/connect';
 import { SpeciesDetails } from '../components/SpeciesDetails/SpeciesDetails';
-import { VehicleDetails } from '../components/VehicleDetails/VehicleDetails';
+import { VehicleDetails } from '../components/VehicleDetails/connect';
 
 export const ROUTES = [
     {

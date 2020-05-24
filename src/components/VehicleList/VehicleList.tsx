@@ -35,7 +35,7 @@ export const VehicleListComponent = ({ vehicleList: vehicleListProps, getVehicle
             ) : (
                 <PersonListStyle>
                     {vehicleList.map((vehicle: Vehicle) => (
-                        <ItemCard type="vehicle" key={vehicle.name} item={vehicle} />
+                        <ItemCard type="vehicles" key={vehicle.name} item={vehicle} />
                     ))}
                 </PersonListStyle>
             )}
