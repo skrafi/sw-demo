@@ -15,3 +15,7 @@ export interface Response {
 export interface PersonResponse {
     data: Person;
 }
+
+export interface PlanetResponse {
+    data: Planet;
+}

@@ -5,21 +5,26 @@ import { getIdFromUrl } from '../../../helpers/getIdFromUrl';
 import { useHistory } from 'react-router-dom';
 import { Reference } from '../../../types/common';
 
-export const RowSingleValue = ({ title, value, urlType }: Props) => {
+export const RowSingleValue = ({ title, reference, value, urlType }: Props) => {
     const history = useHistory();
-    const handleClick = () => history.push(`/${urlType}/${getIdFromUrl(value.url)}`);
+    const handleClick = reference ? () => history.push(`/${urlType}/${getIdFromUrl(reference.url)}`) : undefined;
     return (
         <LabelWrapper>
             <Label>{title}: </Label>
-            <ReferenceStyle key={value.name} onClick={handleClick}>
-                {value.name}
-            </ReferenceStyle>
+            {reference ? (
+                <ReferenceStyle key={reference.name} onClick={handleClick}>
+                    {reference.name}
+                </ReferenceStyle>
+            ) : (
+                <span>{value}</span>
+            )}
         </LabelWrapper>
     );
 };
 
 interface Props {
     title: string;
-    value: Reference;
-    urlType: string;
+    value?: string | number;
+    reference?: Reference;
+    urlType?: string;
 }

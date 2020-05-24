@@ -49,7 +49,7 @@ export const PersonDetailsComponent = ({
                                     <DetsailsCardInner>
                                         <RowSingleValue
                                             title="Homeworld"
-                                            value={personDetails.homeworld}
+                                            reference={personDetails.homeworld}
                                             urlType="planets"
                                         />
                                         <RowMultipleValue

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { API_URL } from '../../constants/endpoints';
-import { Response, PersonResponse } from '../../types/response';
+import { Response, PlanetResponse } from '../../types/response';
 import { Dispatch } from 'redux';
-// import { fetchList } from '../../helpers/fetchList';
+import { fetchList } from '../../helpers/fetchList';
 
 export const fetchPlanetList = () => {
     return (dispatch: Dispatch) => {
@@ -31,18 +31,14 @@ export const fetchPlanetDetails = (personId: number) => {
         });
         return axios
             .get(`${API_URL}planets/${personId}`)
-            .then(async (res: PersonResponse) => {
-                // const species = (await fetchList(res.data.species)) || [];
-                // const planet = (await fetchList([res.data.homeworld])) || [];
-                // const vehicles = (await fetchList(res.data.vehicles)) || [];
-                // return Promise.all([species, planet, vehicles]).then(() => {
-                return {
-                    ...res.data,
-                    // homeworld: planet[0],
-                    // species,
-                    // vehicles,
-                };
-                // });
+            .then(async (res: PlanetResponse) => {
+                const residents = (await fetchList(res.data.residents)) || [];
+                return Promise.all([residents]).then(() => {
+                    return {
+                        ...res.data,
+                        residents,
+                    };
+                });
             })
             .then((data) => {
                 dispatch({

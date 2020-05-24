@@ -5,8 +5,8 @@ import { Content } from '../common/Content/Content';
 import { PlanetDetailsProps } from '../../types/planet';
 import { PlanetDetailsStyle } from './PlanetDetailsStyle';
 import { LoaderView } from '../common/Loader/LoaderView';
-// import { RowSingleValue } from '../common/RowSingleValue/RowSinglValue';
-// import { RowMultipleValue } from '../common/RowMultipleValue/RowMultipleValue';
+import { RowSingleValue } from '../common/RowSingleValue/RowSinglValue';
+import { RowMultipleValue } from '../common/RowMultipleValue/RowMultipleValue';
 import { Details, DetailsCardStyle, DetsailsCardInner } from '../common/Details/Details';
 import { BigPhoto } from '../common/BigPhoto/BigPhoto';
 
@@ -47,7 +47,12 @@ export const PlanetDetailsComponent = ({
                                 <BigPhoto type="planet" reverse />
                                 <DetailsCardStyle>
                                     <DetsailsCardInner>
-                                        <div>Details</div>
+                                        <RowSingleValue value={planetDetails.population} title="Population" />
+                                        <RowMultipleValue
+                                            listValue={planetDetails.residents}
+                                            title="Residents"
+                                            urlType="people"
+                                        />
                                     </DetsailsCardInner>
                                 </DetailsCardStyle>
                             </Details>
