@@ -58,7 +58,7 @@ export const fetchPersonDetails = (personId: number) => {
                 return Promise.all([species, planet, vehicles]).then(() => {
                     return {
                         ...res.data,
-                        homeworld: planet,
+                        homeworld: planet[0],
                         species,
                         vehicles,
                     };

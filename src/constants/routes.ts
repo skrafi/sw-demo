@@ -1,7 +1,7 @@
 import { PersonList } from '../components/PersonList/PersonList';
 import { PlanetList } from '../components/PlanetList/PlanetList';
 import { TransportList } from '../components/TransportList/TransportList';
-import { PersonDetails } from '../components/PersonDetails/PersonDetails';
+import { PersonDetails } from '../components/PersonDetails/connect';
 import { PlanetDetails } from '../components/PlanetDetails/PlanetDetails';
 import { SpeciesDetails } from '../components/SpeciesDetails/SpeciesDetails';
 import { VehicleDetails } from '../components/VehicleDetails/VehicleDetails';

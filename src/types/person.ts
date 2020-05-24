@@ -17,6 +17,6 @@ export interface PersonDetailsProps {
     name: string;
     url: string;
     species: Reference[];
-    homeworld: Reference[];
+    homeworld: Reference;
     vehicles: Reference[];
 }
