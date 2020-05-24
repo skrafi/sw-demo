@@ -3,7 +3,6 @@ import { PlanetList } from '../components/PlanetList/PlanetList';
 import { VehicleList } from '../components/VehicleList/VehicleList';
 import { PersonDetails } from '../components/PersonDetails/connect';
 import { PlanetDetails } from '../components/PlanetDetails/connect';
-import { SpeciesDetails } from '../components/SpeciesDetails/SpeciesDetails';
 import { VehicleDetails } from '../components/VehicleDetails/connect';
 
 export const ROUTES = [
@@ -32,10 +31,6 @@ export const PRIVATE_ROUTES = [
     {
         path: '/planets/:id',
         component: PlanetDetails,
-    },
-    {
-        path: '/species/:id',
-        component: SpeciesDetails,
     },
     {
         path: '/vehicles/:id',

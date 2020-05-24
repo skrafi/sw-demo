@@ -39,7 +39,7 @@ export const fetchPersonDetails = (personId: number) => {
                     return {
                         ...res.data,
                         homeworld: planet[0],
-                        species,
+                        species: species.map((s) => s.name),
                         vehicles,
                     };
                 });

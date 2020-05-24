@@ -49,7 +49,7 @@ export const VehicleDetailsComponent = ({
                                     <DetsailsCardInner>
                                         <RowSingleValue value={vehicleDetails.vehicleClass} title="Type" />
                                         <RowMultipleValue
-                                            listValue={vehicleDetails.pilots}
+                                            listReference={vehicleDetails.pilots}
                                             title="Pilots"
                                             urlType={'people'}
                                         />

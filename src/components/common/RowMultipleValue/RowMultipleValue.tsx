@@ -2,25 +2,29 @@ import * as React from 'react';
 import { Label, LabelWrapper } from '../Label/Label';
 import { useHistory } from 'react-router-dom';
 import { getIdFromUrl } from '../../../helpers/getIdFromUrl';
-import { List, ReferenceStyleList } from './List';
+import { List } from './List';
 import { Reference } from '../../../types/common';
+import { ReferenceList } from './ReferenceList';
+import { ValueList } from './ValueList';
 
-export const RowMultipleValue = ({ title, listValue, urlType }: Props) => {
+export const RowMultipleValue = ({ title, listValue = [], listReference = [], urlType }: Props) => {
     const history = useHistory();
     const handleClick = (s: Reference) => history.push(`/${urlType}/${getIdFromUrl(s.url)}`);
+    const isReference = listReference.length > 0;
+    const emptyList = listValue.length + listReference.length === 0;
     return (
         <>
             <LabelWrapper>
                 <Label>{title}: </Label>
-                {listValue.length === 0 && 'None'}
+                {emptyList && 'None'}
             </LabelWrapper>
-            {listValue.length !== 0 && (
+            {!emptyList && (
                 <List>
-                    {listValue.map((v: Reference) => (
-                        <ReferenceStyleList key={v.name} onClick={() => handleClick(v)}>
-                            {v.name}
-                        </ReferenceStyleList>
-                    ))}
+                    {isReference ? (
+                        <ReferenceList listReference={listReference} handleClick={handleClick} />
+                    ) : (
+                        <ValueList listValue={listValue} />
+                    )}
                 </List>
             )}
         </>
@@ -29,6 +33,7 @@ export const RowMultipleValue = ({ title, listValue, urlType }: Props) => {
 
 interface Props {
     title: string;
-    listValue: Reference[];
-    urlType: string;
+    listReference?: Reference[];
+    listValue?: string[];
+    urlType?: string;
 }

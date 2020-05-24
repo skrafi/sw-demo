@@ -13,7 +13,7 @@ export interface PersonDetailsProps {
     id: number;
     name: string;
     url: string;
-    species: Reference[];
+    species: string[];
     homeworld: Reference;
     vehicles: Reference[];
 }

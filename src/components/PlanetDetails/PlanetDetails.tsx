@@ -49,7 +49,7 @@ export const PlanetDetailsComponent = ({
                                     <DetsailsCardInner>
                                         <RowSingleValue value={planetDetails.population} title="Population" />
                                         <RowMultipleValue
-                                            listValue={planetDetails.residents}
+                                            listReference={planetDetails.residents}
                                             title="Residents"
                                             urlType="people"
                                         />

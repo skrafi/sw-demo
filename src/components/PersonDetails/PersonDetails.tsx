@@ -52,14 +52,10 @@ export const PersonDetailsComponent = ({
                                             reference={personDetails.homeworld}
                                             urlType="planets"
                                         />
-                                        <RowMultipleValue
-                                            title="Species"
-                                            listValue={personDetails.species}
-                                            urlType="species"
-                                        />
+                                        <RowMultipleValue title="Species" listValue={personDetails.species} />
                                         <RowMultipleValue
                                             title="Vehicles"
-                                            listValue={personDetails.vehicles}
+                                            listReference={personDetails.vehicles}
                                             urlType="vehicles"
                                         />
                                     </DetsailsCardInner>
