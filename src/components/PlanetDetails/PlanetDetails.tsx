@@ -43,8 +43,7 @@ export const PlanetDetailsComponent = ({
                     {planetDetails && (
                         <>
                             <h1>{planetDetails.name}</h1>
-                            <Details reverse>
-                                <BigPhoto type="planet" reverse />
+                            <Details>
                                 <DetailsCardStyle>
                                     <DetsailsCardInner>
                                         <RowSingleValue value={planetDetails.population} title="Population" />
@@ -55,6 +54,7 @@ export const PlanetDetailsComponent = ({
                                         />
                                     </DetsailsCardInner>
                                 </DetailsCardStyle>
+                                <BigPhoto type="planet" />
                             </Details>
                         </>
                     )}

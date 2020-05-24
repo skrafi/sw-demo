@@ -5,13 +5,13 @@ import { Dispatch } from 'redux';
 import { camelCaseKeys } from '../../helpers/camelCaseKeys';
 import { fetchList } from '../../helpers/fetchList';
 
-export const fetchVehicleList = () => {
+export const fetchVehicleList = (page = 1) => {
     return (dispatch: Dispatch) => {
         dispatch({
             type: 'GET_VEHICLE_LIST',
         });
         return axios
-            .get(`${API_URL}vehicles`)
+            .get(`${API_URL}vehicles?page=${page}`)
             .then((res: Response) => res.data)
             .then((data) => {
                 dispatch({

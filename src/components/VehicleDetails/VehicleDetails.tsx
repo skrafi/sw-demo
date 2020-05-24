@@ -43,8 +43,7 @@ export const VehicleDetailsComponent = ({
                     {vehicleDetails && (
                         <>
                             <h1>{vehicleDetails.name}</h1>
-                            <Details reverse>
-                                <BigPhoto type="vehicle" reverse />
+                            <Details>
                                 <DetailsCardStyle>
                                     <DetsailsCardInner>
                                         <RowSingleValue value={vehicleDetails.vehicleClass} title="Type" />
@@ -55,6 +54,7 @@ export const VehicleDetailsComponent = ({
                                         />
                                     </DetsailsCardInner>
                                 </DetailsCardStyle>
+                                <BigPhoto type="vehicle" />
                             </Details>
                         </>
                     )}

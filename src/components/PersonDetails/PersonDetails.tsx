@@ -44,7 +44,6 @@ export const PersonDetailsComponent = ({
                         <>
                             <h1>{personDetails.name}</h1>
                             <Details>
-                                <BigPhoto type="person" />
                                 <DetailsCardStyle>
                                     <DetsailsCardInner>
                                         <RowSingleValue
@@ -60,6 +59,7 @@ export const PersonDetailsComponent = ({
                                         />
                                     </DetsailsCardInner>
                                 </DetailsCardStyle>
+                                <BigPhoto type="person" />
                             </Details>
                         </>
                     )}

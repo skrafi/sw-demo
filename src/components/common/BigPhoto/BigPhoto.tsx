@@ -32,5 +32,5 @@ export const BigPhoto = styled.div<Props>`
     background-repeat: no-repeat;
     background-position: left;
 
-    margin: ${({ reverse }) => (reverse ? '0 0 0 32px' : '0 32px 0 0')};
+    margin-left: 32px;
 `;
