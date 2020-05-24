@@ -1,0 +1,14 @@
+---
+name: RowMultipleValue
+route: /row-multiple-value
+---
+import { Playground } from 'docz'
+import { RowMultipleValue } from './RowMultipleValue.tsx'
+
+## Basic usage
+<Playground>
+  <RowMultipleValue 
+    listReference={[{name:'test', url:'test'},{name:'test2', url:'test2'}]} 
+    title="Residents" 
+    urlType="people"/>
+</Playground>

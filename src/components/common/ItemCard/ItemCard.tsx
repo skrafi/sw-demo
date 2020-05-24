@@ -27,6 +27,9 @@ export const ItemCard = (props: Props) => {
 };
 
 interface Props {
+    /**
+     * A description of the prop that you seem fit :)
+     */
     item: Person | Planet | Vehicle;
     type: string;
 }
