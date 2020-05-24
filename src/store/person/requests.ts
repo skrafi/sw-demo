@@ -5,6 +5,9 @@ import { Dispatch } from 'redux';
 
 export const fetchPersonList = () => {
     return (dispatch: Dispatch) => {
+        dispatch({
+            type: 'GET_PERSON_LIST',
+        });
         return axios
             .get(`${API_URL}people`)
             .then((res: Response) => res.data.results)
@@ -43,6 +46,9 @@ function fetchList(listOfLinks: string[]) {
 
 export const fetchPersonDetails = (personId: number) => {
     return (dispatch: Dispatch) => {
+        dispatch({
+            type: 'GET_PERSON_DETAILS',
+        });
         return axios
             .get(`${API_URL}people/${personId}`)
             .then(async (res: PersonResponse) => {

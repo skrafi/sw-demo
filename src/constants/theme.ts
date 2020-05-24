@@ -3,8 +3,9 @@ export const THEME = {
         primaryGold: '#d4c70b',
         deepBlack: '#000000',
         darkGray: '#181818',
-        blue: '#95ebf5',
+        blue: '#67B8D2',
         red: '#C02619',
+        lightGray: '#808080',
         background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0,0,0) 40%, rgba(9, 65, 121, 1) 100%)',
     },
     shadow: {

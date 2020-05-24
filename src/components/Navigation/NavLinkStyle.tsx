@@ -7,7 +7,7 @@ export const NavLinkStyle = styled(NavLink)`
     margin-top: 8px;
     width: 100%;
 
-    color: ${THEME.color.primaryGold};
+    color: ${THEME.color.lightGray};
 
     text-align: left;
     font-family: ${THEME.font.familiy.secondary}
@@ -16,12 +16,14 @@ export const NavLinkStyle = styled(NavLink)`
     font-weight: 600;
     text-decoration: none;
 
-    $:first-child {
+    border-bottom: 1px solid black;
+
+    $:first-of-type {
         margin-top: 8px;
     }
     &:hover,
     &.active {
-        background-color: ${THEME.color.primaryGold};
-        color: black;
+        color: ${THEME.color.primaryGold};
+        border-bottom: 1px solid ${THEME.color.primaryGold};
     }
 `;

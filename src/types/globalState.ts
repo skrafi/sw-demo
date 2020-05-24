@@ -6,5 +6,7 @@ export interface GlobalState {
 
 export interface PersonState {
     personList: Person[];
+    listLoading: boolean;
     personDetails: PersonDetailsProps;
+    personLoading: boolean;
 }

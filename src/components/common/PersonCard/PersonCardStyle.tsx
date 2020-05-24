@@ -12,17 +12,33 @@ export const PersonCardWrapper = styled.div`
 `;
 
 export const PersonCardStyle = styled.div`
-    margin: 2% 5%;
-    padding: 16px;
-    width: 10em;
-    height: 12em;
+    width: 12em;
+    height: 16em;
     cursor: pointer;
     &:hover {
-        box-shadow: ${THEME.shadow.gold};
+        & > div {
+            border: 2px solid ${THEME.color.red};
+        }
     }
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #e7e7e7;
     border-radius: 8px;
+    background-color: #2e2e2e;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.8);
+    padding: 8px;
+`;
+
+export const CardInner = styled.div`
+    border: 2px solid #67b8d2;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+`;
+
+export const PersonName = styled.div`
+    width: 100%;
+    text-align: center;
 `;

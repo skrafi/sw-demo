@@ -8,13 +8,15 @@ import { PersonListStyle } from './PersonListStyle';
 import { GlobalState } from '../../types/globalState';
 import { Header } from '../common/Header/Header';
 import { Content } from '../common/Content/Content';
+import { LoaderView } from '../common/Loader/LoaderView';
 
 interface Props {
     personList: Person[];
+    listLoading: boolean;
     getPersonList: () => void;
 }
 
-export const PersonListComponent = ({ personList: personListProps, getPersonList }: Props) => {
+export const PersonListComponent = ({ personList: personListProps, getPersonList, listLoading }: Props) => {
     const [personList, setPersonList] = React.useState(personListProps);
 
     React.useEffect(() => {
@@ -28,17 +30,22 @@ export const PersonListComponent = ({ personList: personListProps, getPersonList
     return (
         <Content>
             <Header>People</Header>
-            <PersonListStyle>
-                {personList.map((person: Person) => (
-                    <PersonCard key={person.name} person={person} />
-                ))}
-            </PersonListStyle>
+            {listLoading ? (
+                <LoaderView />
+            ) : (
+                <PersonListStyle>
+                    {personList.map((person: Person) => (
+                        <PersonCard key={person.name} person={person} />
+                    ))}
+                </PersonListStyle>
+            )}
         </Content>
     );
 };
 
 const mapStateToProps = (state: GlobalState) => ({
     personList: state.person.personList,
+    listLoading: state.person.listLoading,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

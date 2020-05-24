@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PersonCardAvatar } from './PersonCardAvatar';
-import { PersonCardWrapper, PersonCardStyle } from './PersonCardStyle';
+import { PersonCardWrapper, PersonCardStyle, CardInner, PersonName } from './PersonCardStyle';
 import { useHistory } from 'react-router-dom';
 import { Person } from '../../../types/person';
 
@@ -15,8 +15,10 @@ export const PersonCard = (props: Props) => {
     return (
         <PersonCardWrapper>
             <PersonCardStyle onClick={() => goToDetails()}>
-                <PersonCardAvatar />
-                <span>{person.name}</span>
+                <CardInner>
+                    <PersonCardAvatar />
+                    <PersonName>{person.name}</PersonName>
+                </CardInner>
             </PersonCardStyle>
         </PersonCardWrapper>
     );
