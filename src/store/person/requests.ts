@@ -3,14 +3,17 @@ import { API_URL } from '../../constants/endpoints';
 import { Response, PersonResponse } from '../../types/response';
 import { Dispatch } from 'redux';
 import { fetchList } from '../../helpers/fetchList';
+import { UrlParamBuilder } from '../../helpers/addUrlParam';
 
-export const fetchPersonList = (page = 1) => {
+export const fetchPersonList = (page = 1, search?: string) => {
     return (dispatch: Dispatch) => {
         dispatch({
             type: 'GET_PERSON_LIST',
         });
+        const newUrl = new UrlParamBuilder(`${API_URL}people`);
+        const peopleUrl = newUrl.addParam('page', page).addParam('search', search).url;
         return axios
-            .get(`${API_URL}people?page=${page}`)
+            .get(peopleUrl)
             .then((res: Response) => res.data)
             .then((data) => {
                 dispatch({

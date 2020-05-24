@@ -14,6 +14,7 @@ export interface PersonState {
     listLoading: boolean;
     personDetails: PersonDetailsProps;
     personLoading: boolean;
+    personSearch: string;
 }
 
 export interface PlanetState {

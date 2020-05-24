@@ -15,7 +15,7 @@ export const ButtonStyle = styled.button<BtnProps>`
     box-shadow: none;
     border: none;
     background-color: ${THEME.color.primaryGold};
-    border: 2px solid ${THEME.color.deepBlack};
+    border: 2px solid transparent;
     padding: 8px 16px;
     font-weight: 600;
     font-size: 16px;

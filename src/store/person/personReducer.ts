@@ -3,6 +3,7 @@ import { Action } from '../../types/common';
 const initState = {
     personList: [],
     personListCount: 0,
+    personSearch: '',
     listLoding: false,
     personDetails: null,
     personLoading: false,
@@ -14,6 +15,11 @@ const personReducer = (state = initState, action: Action) => {
             return {
                 ...state,
                 listLoading: true,
+            };
+        case 'UPDATE_PERSON_SEARCH':
+            return {
+                ...state,
+                personSearch: action.payload,
             };
         case 'UPDATE_PERSON_LIST':
             return {
