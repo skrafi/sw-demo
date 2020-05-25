@@ -19,7 +19,7 @@ export const PlanetDetailsComponent = ({
     const { id } = useParams();
     const [planetDetails, setPlanetDetails] = React.useState(planetDetailsProps);
     const handleBackClick = () => {
-        history.push('/people');
+        history.goBack();
     };
 
     React.useEffect(() => {

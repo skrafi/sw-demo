@@ -19,7 +19,7 @@ export const VehicleDetailsComponent = ({
     const { id } = useParams();
     const [vehicleDetails, setVehicleDetails] = React.useState(vehicleDetailsProps);
     const handleBackClick = () => {
-        history.push('/people');
+        history.goBack();
     };
 
     React.useEffect(() => {

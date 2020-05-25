@@ -21,7 +21,7 @@ export const PersonDetailsComponent = ({
     const { id } = useParams();
     const [personDetails, setPersonDetails] = React.useState(personDetailsProps);
     const handleBackClick = () => {
-        history.push('/people');
+        history.goBack();
     };
 
     React.useEffect(() => {
